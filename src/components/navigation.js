@@ -48,15 +48,14 @@ class Navigation extends React.Component {
               </Link>
             </div>
             <div className={classes.rightNav}>
-              <IconButton aria-label="Mail" className={classes.smallIcon}>
-                <FontAwesomeIcon icon={faEnvelope} />
-              </IconButton>
-              <IconButton aria-label="Instagram" className={classes.smallIcon}>
-                <FontAwesomeIcon icon={faInstagram} />
-              </IconButton>
-              <IconButton aria-label="LinkedIn" className={classes.smallIcon}>
-                <FontAwesomeIcon icon={faLinkedin} />
-              </IconButton>
+              <a href="https://www.instagram.com/toosuixy/?hl=en" target="_blank">
+                <IconButton
+                  aria-label="Instagram"
+                  className={classes.smallIcon}
+                >
+                  <FontAwesomeIcon icon={faInstagram} />
+                </IconButton>
+              </a>
             </div>
           </Toolbar>
         </AppBar>

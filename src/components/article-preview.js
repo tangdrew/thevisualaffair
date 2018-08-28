@@ -8,7 +8,6 @@ import Media from 'react-media'
 
 const styles = {
   postImages: {
-    // minHeight: '500px',
     position: 'relative',
     flex: 1,
     display: 'block',
@@ -17,13 +16,13 @@ const styles = {
     top: 0,
     right: 0,
     position: 'absolute',
-    width: '60%',
+    maxWidth: '70%',
   },
   bottomLeft: {
     bottom: 0,
     left: 0,
     position: 'absolute',
-    width: '40%',
+    maxWidth: '50%',
   },
   hoverHighlight: {
     '&:hover': {
@@ -80,25 +79,31 @@ class ArticlePreview extends React.Component {
               </Typography>
             </div>
           </Grid>
-          <Grid item xs={10}>
+          <Grid item xs={10} className={classes.imageSection}>
             <Link to={`/blog/${article.slug}`}>
-              <Media query="(max-width: 768)">
+              <Media query="(max-width: 768px)">
                 {matches => (
                   <div
                     className={classes.postImages}
-                    style={{ minHeight: matches ? '500px' : '300px' }}
+                    style={{ minHeight: matches ? '300px' : '500px' }}
                   >
-                    <figure className={classes.topRight}>
+                    <figure
+                      className={classes.topRight}
+                      style={{ margin: '0px' }}
+                    >
                       <img
                         className={classes.image}
-                        src={`${firstHeroImage.file.url}`}
+                        src={`${firstHeroImage.file.url}?h=500`}
                         alt=""
                       />
                     </figure>
-                    <figure className={classes.bottomLeft}>
+                    <figure
+                      className={classes.bottomLeft}
+                      style={{ margin: '0px' }}
+                    >
                       <img
                         className={classes.image}
-                        src={`${secondHeroImage.file.url}`}
+                        src={`${secondHeroImage.file.url}?h=500`}
                         alt=""
                       />
                     </figure>
