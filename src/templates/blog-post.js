@@ -1,14 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
 import get from 'lodash/get'
 import styles from './blog-post.module.css'
 import Slider from 'react-slick'
 import Grid from '@material-ui/core/Grid'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 class BlogPostTemplate extends React.Component {
   render() {

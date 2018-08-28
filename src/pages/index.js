@@ -35,7 +35,7 @@ class RootIndex extends React.Component {
             switch (index % 3) {
               case 0:
                 return (
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12} sm={6} key={index}>
                     <ArticlePreview
                       className={classes.tallPreview}
                       article={post.node}
@@ -44,7 +44,7 @@ class RootIndex extends React.Component {
                 )
               case 1:
                 return (
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12} sm={6} key={index}>
                     <ArticlePreview
                       className={classes.tallPreview}
                       article={post.node}
@@ -53,7 +53,7 @@ class RootIndex extends React.Component {
                 )
               case 2:
                 return (
-                  <Grid item xs={12}>
+                  <Grid item xs={12} key={index}>
                     <HorizontalPreview article={post.node} />
                   </Grid>
                 )

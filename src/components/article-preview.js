@@ -35,8 +35,8 @@ const styles = {
 class ArticlePreview extends React.Component {
   render() {
     const { classes, article } = this.props
-    const [firstHeroImage, secondHeroImage] = article.heroImages;
-    console.log({article})
+    const { heroImages } = article
+    const [firstHeroImage, secondHeroImage] = heroImages
 
     return (
       <div>
