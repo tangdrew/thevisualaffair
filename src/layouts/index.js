@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import base from './base.css'
 import Container from '../components/container'
 import Navigation from '../components/navigation'
+import Footer from '../components/footer'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 
 import { createMuiTheme } from '@material-ui/core/styles'
@@ -44,6 +45,7 @@ class Template extends React.Component {
         <Container>
           <Navigation />
           {children()}
+          <Footer />
         </Container>
       </MuiThemeProvider>
     )
