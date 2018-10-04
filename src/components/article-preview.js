@@ -71,10 +71,10 @@ class ArticlePreview extends React.Component {
                   paddingBottom: '5px',
                   whiteSpace: 'nowrap',
                   borderBottom: '1px solid #b7b7b7',
-                  '-webkit-transform': 'rotate(-90deg)',
-                  '-moz-transform': 'rotate(-90deg)',
-                  '-ms-transform': 'rotate(-90deg)',
-                  '-o-transform': 'rotate(-90deg)',
+                  WebkitTransform: 'rotate(-90deg)',
+                  MozTransformStyle: 'rotate(-90deg)',
+                  msTransform: 'rotate(-90deg)',
+                  OTransform: 'rotate(-90deg)',
                   filter:
                     'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)',
                 }}
