@@ -1,40 +1,35 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import base from './base.css'
 import Container from '../components/container'
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import { Paper } from '@material-ui/core'
+import css from './base.css'
 
 import { createMuiTheme } from '@material-ui/core/styles'
 
-const theme = createMuiTheme({
+export const theme = createMuiTheme({
   typography: {
     // Use the system font instead of the default Roboto font.
-    fontFamily: [
-      'Permanent Marker',
-      'Lato',
-    ].join(','),
+    fontFamily: ['Permanent Marker', 'Lato'].join(','),
     body1: {
-      fontFamily: "Lato"
+      fontFamily: 'Lato',
     },
     body2: {
-      fontFamily: "Lato"
+      fontFamily: 'Lato',
     },
     subheading: {
-      fontFamily: "Lato"
+      fontFamily: 'Lato',
     },
     caption: {
-      fontFamily: "Lato"
+      fontFamily: 'Lato',
     },
   },
 })
 
 class Template extends React.Component {
   render() {
-    const { location, children } = this.props
-    let header
-
+    const { children } = this.props
     let rootPath = `/`
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
       rootPath = __PATH_PREFIX__ + `/`
@@ -42,10 +37,16 @@ class Template extends React.Component {
 
     return (
       <MuiThemeProvider theme={theme}>
+        <link
+          href="https://fonts.googleapis.com/css?family=Permanent+Marker"
+          rel="stylesheet"
+        />
         <Container>
-          <Navigation />
-          {children()}
-          <Footer />
+          <Paper style={{ background: '#fff' }}>
+            <Navigation />
+            {children()}
+            <Footer />
+          </Paper>
         </Container>
       </MuiThemeProvider>
     )

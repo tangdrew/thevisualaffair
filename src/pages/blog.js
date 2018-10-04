@@ -1,8 +1,9 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import ArticlePreview from '../components/article-preview'
+import { Typography } from '@material-ui/core'
+
+import HorizontalPreview from '../components/horizontal-preview'
 
 class BlogIndex extends React.Component {
   render() {
@@ -24,18 +25,17 @@ class BlogIndex extends React.Component {
     return (
       <div style={{ background: '#fff' }}>
         <Helmet title={siteTitle} />
-        <div className="wrapper">
-          <div className={styles.hero}>Blog</div>
-          <h2 className="section-headline">Recent articles</h2>
-          <ul className="article-list">
-            {posts.map(({ node }) => {
-              return (
-                <li key={node.slug}>
-                  <ArticlePreview article={node} />
-                </li>
-              )
-            })}
-          </ul>
+        <div
+          style={{
+            width: 'calc(100% - 10em)',
+            margin: '0 auto',
+            padding: '2em 0',
+          }}
+        >
+          <Typography variant="display2">Recent articles</Typography>
+          {posts.map(({ node }) => {
+            return <HorizontalPreview article={node} key={node.slug} />
+          })}
         </div>
       </div>
     )
@@ -52,12 +52,6 @@ export const pageQuery = graphql`
           title
           slug
           publishDate(formatString: "MMMM Do, YYYY")
-          # tags
-          heroImage {
-            file {
-              url
-            }
-          }
           heroImages {
             file {
               url

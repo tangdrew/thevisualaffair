@@ -3,27 +3,9 @@ import Link from 'gatsby-link'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import css from './article-preview.module.css'
 import Media from 'react-media'
 
 const styles = {
-  postImages: {
-    position: 'relative',
-    flex: 1,
-    display: 'block',
-  },
-  topRight: {
-    top: 0,
-    right: 0,
-    position: 'absolute',
-    maxWidth: '70%',
-  },
-  bottomLeft: {
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-    maxWidth: '50%',
-  },
   hoverHighlight: {
     '&:hover': {
       color: '#b7b7b7',
@@ -48,7 +30,11 @@ class ArticlePreview extends React.Component {
               to={`/blog/${article.slug}`}
               style={{ textDecoration: 'none' }}
             >
-              <Typography variant="title" className={classes.hoverHighlight}>
+              <Typography
+                variant="title"
+                className={classes.hoverHighlight}
+                style={{ textTransform: 'uppercase' }}
+              >
                 {article.title}
               </Typography>
             </Link>
@@ -67,6 +53,7 @@ class ArticlePreview extends React.Component {
                   __html: article.description.childMarkdownRemark.html,
                 }}
                 className={classes.hoverHighlight}
+                style={{ textTransform: 'uppercase' }}
               />
             </Link>
           </Grid>
@@ -74,35 +61,72 @@ class ArticlePreview extends React.Component {
         <Grid container>
           <Grid item xs={2}>
             <div>
-              <Typography variant="caption" className={css.rotate}>
+              <Typography
+                variant="caption"
+                style={{
+                  paddingTop: '0px',
+                  width: '120%',
+                  marginTop: '100px !important',
+                  marginRight: '50px !important',
+                  paddingBottom: '5px',
+                  whiteSpace: 'nowrap',
+                  borderBottom: '1px solid #b7b7b7',
+                  '-webkit-transform': 'rotate(-90deg)',
+                  '-moz-transform': 'rotate(-90deg)',
+                  '-ms-transform': 'rotate(-90deg)',
+                  '-o-transform': 'rotate(-90deg)',
+                  filter:
+                    'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)',
+                }}
+              >
                 {article.publishDate}
               </Typography>
             </div>
           </Grid>
-          <Grid item xs={10} className={classes.imageSection}>
+          <Grid item xs={10}>
             <Link to={`/blog/${article.slug}`}>
               <Media query="(max-width: 768px)">
                 {matches => (
                   <div
-                    className={classes.postImages}
-                    style={{ minHeight: matches ? '300px' : '500px' }}
+                    style={{
+                      minHeight: matches ? '300px' : '500px',
+                      position: 'relative',
+                      flex: 1,
+                      display: 'block',
+                    }}
                   >
                     <figure
-                      className={classes.topRight}
-                      style={{ margin: '0px' }}
+                      style={{
+                        margin: '0px',
+                        top: 0,
+                        right: 0,
+                        position: 'absolute',
+                        maxWidth: '70%',
+                      }}
                     >
                       <img
-                        className={classes.image}
+                        style={{
+                          display: 'block',
+                          width: '100%',
+                        }}
                         src={`${firstHeroImage.file.url}?h=500`}
                         alt=""
                       />
                     </figure>
                     <figure
-                      className={classes.bottomLeft}
-                      style={{ margin: '0px' }}
+                      style={{
+                        margin: '0px',
+                        bottom: 0,
+                        left: 0,
+                        position: 'absolute',
+                        maxWidth: '50%',
+                      }}
                     >
                       <img
-                        className={classes.image}
+                        style={{
+                          display: 'block',
+                          width: '100%',
+                        }}
                         src={`${secondHeroImage.file.url}?h=500`}
                         alt=""
                       />
